@@ -23,9 +23,7 @@ export function TaskList(props) {
     setList(updateList);
   };
 
-  const chk = list.map((item) => ( // MAP DE TASKSITEMS MOSTRADOS EN TASKLIST
-    <TaskItem key={item.id} data={item} onChange={onChangeStatus} />
-  ));
+  const chk = list.map((item) => (<TaskItem key={item.id} data={item} onChange={onChangeStatus} />));
 
   return (
     <Fragment>

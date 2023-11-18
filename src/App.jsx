@@ -19,4 +19,4 @@ export function App() {
       <TaskList list={list} setList={setList} />
     </Fragment>
   );
-}
+};
