@@ -29,7 +29,7 @@ export function TaskForm(props) {
           value={task}
           onChange={(e) => setTask(e.target.value)}
         />
-        <button disabled={task ? '' : 'disabled'}> Agregar </button>
+        <button disabled={task.trim().length > 0 ? '' : 'disabled'}> Agregar </button>
       </form>
     </Fragment>
   );
