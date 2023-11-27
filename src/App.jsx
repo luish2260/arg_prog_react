@@ -8,32 +8,26 @@ import './App.css';
 import { TaskForm } from './components/TaskForm';
 import { TaskList } from './components/TaskList';
 
-const KEY = 'listApp.items';
+const LOCALKEY = 'listApp.items';
 
 export function App() {
   const [list, setList] = useState([]);
+  const getPrevStore = async () => {
+    const getlocalStore = await JSON.parse(localStorage.getItem(LOCALKEY));
+    if (getlocalStore.length > 0) {
+      setList(getlocalStore);
+    }
+    else {
+      return;
+    }
+  };
 
   useEffect(() => {
-
-    const getPrevStore = async () => {
-      const getlocalStore = await JSON.parse(localStorage.getItem(KEY));
-      if (getlocalStore.length > 0) {
-        setList(getlocalStore);
-      }
-      else {
-        return;
-      }
-    }
     getPrevStore();
   }, []);
 
   useEffect(() => {
-
-    const putActualStore = async () => {
-      const itemsSaved = await localStorage.setItem(KEY, JSON.stringify(list));
-      console.log(itemsSaved);
-    }
-    putActualStore();
+    localStorage.setItem(LOCALKEY, JSON.stringify(list));
   }, [list]);
 
   const handleAddItem = (newItem) => {
