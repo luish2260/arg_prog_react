@@ -16,7 +16,7 @@ export function App() {
   useEffect(() => {
 
     const getStore = async () => {
-      let localStore = await JSON.parse(localStorage.getItem(KEY));
+      const localStore = await JSON.parse(localStorage.getItem(KEY));
       if (localStore.length > 0) {
         setList(localStore);
       }
