@@ -18,6 +18,9 @@ export function App() {
     if (store.length > 0) {
       setList(store);
     }
+    else {
+      return;
+    }
   }, []);
 
   useEffect(() => {
