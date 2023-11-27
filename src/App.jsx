@@ -13,15 +13,21 @@ const KEY = 'listApp.items';
 export function App() {
   const [list, setList] = useState([]);
 
-  /* useEffect(() => {
-    let store = JSON.parse(localStorage.getItem(KEY));
-    if (store.length > 0) {
-      setList(store);
+  useEffect(() => {
+
+    const getStore = async () => {
+      let localStore = await JSON.parse(localStorage.getItem(KEY));
+      if (localStore.length > 0) {
+        setList(localStore);
+      }
+      else {
+        return;
+      }
     }
-    else {
-      return;
-    }
-  }, []); */
+
+    getStore();
+
+  }, []);
 
   useEffect(() => {
     localStorage.setItem(KEY, JSON.stringify(list));
