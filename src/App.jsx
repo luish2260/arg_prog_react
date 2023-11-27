@@ -13,7 +13,7 @@ const KEY = 'listApp.items';
 export function App() {
   const [list, setList] = useState([]);
 
-  useEffect(() => {
+  /* useEffect(() => {
     let store = JSON.parse(localStorage.getItem(KEY));
     if (store.length > 0) {
       setList(store);
@@ -21,7 +21,7 @@ export function App() {
     else {
       return;
     }
-  }, []);
+  }, []); */
 
   useEffect(() => {
     localStorage.setItem(KEY, JSON.stringify(list));
