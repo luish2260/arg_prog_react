@@ -33,6 +33,7 @@ export function App() {
   const handleAddItem = (newItem) => {
     setList([...list, newItem]);
   };
+  
   return (
     <Fragment>
       <TaskForm handleAddItem={handleAddItem} />
