@@ -15,22 +15,25 @@ export function App() {
 
   useEffect(() => {
 
-    const getStore = async () => {
-      const localStore = await JSON.parse(localStorage.getItem(KEY));
-      if (localStore.length > 0) {
-        setList(localStore);
+    const getPrevStore = async () => {
+      const getlocalStore = await JSON.parse(localStorage.getItem(KEY));
+      if (getlocalStore.length > 0) {
+        setList(getlocalStore);
       }
       else {
         return;
       }
     }
-
-    getStore();
-
+    getPrevStore();
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(KEY, JSON.stringify(list));
+
+    const putActualStore = async () => {
+      const itemsSaved = await localStorage.setItem(KEY, JSON.stringify(list));
+      console.log(itemsSaved);
+    }
+    putActualStore();
   }, [list]);
 
   const handleAddItem = (newItem) => {
