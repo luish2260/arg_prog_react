@@ -32,7 +32,6 @@ export function TaskList(props) {
 
   return (
     <Fragment>
-      {list.length > 1 ? <p><button onClick={onClickRemoveAll}> BOTON PARA BORRAR TODAS LAS TAREAS </button></p> : null}
       {list.length ? chk : null}
       {list.length ? (<p><button onClick={onClickRemoveItem}> ELIMINAR LAS TAREAS YA REALIZADAS </button></p>) : 'SIN TAREAS POR EL MOMENTO'}
       {list.length > 1 ? <p><button onClick={onClickRemoveAll}> BOTON PARA BORRAR TODAS LAS TAREAS </button></p> : null}
