@@ -15,9 +15,9 @@ export function TaskForm(props) {
 
   const [task, setTask] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    handleAddItem({ done: false, id: (new Date()).toString(), task }); // new Date().getTime().toString()
+    await handleAddItem({ done: false, id: new Date().getTime().toString(), task });
     setTask('');
   };
 

@@ -37,6 +37,7 @@ export function App() {
   return (
     <Fragment>
       <TaskForm handleAddItem={handleAddItem} />
+      {/* EL COMPONENTE TASKLIST HACE UN MAP DE TASKITEMS */}
       <TaskList list={list} setList={setList} />
     </Fragment>
   );
